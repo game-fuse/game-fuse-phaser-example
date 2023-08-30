@@ -10,7 +10,8 @@
 
     <link rel="stylesheet" href="./src/styles/main.css" />
 
-    <script src="https://cdn.jsdelivr.net/gh/game-fuse/game-fuse-js@main/gameFuseFull.js"></script>
+    <script src="http://localhost:8080/gameFuseFull.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/game-fuse/game-fuse-js@main/gameFuseFull.js"></script> -->
 </head>
 
 <body>
@@ -39,12 +40,19 @@
                 Don't have an account then
                 <button id="signupLink">Sign Up</button>
             </p>
+            <button id="forgotPageLink">Forgot Password?</button>
         </div>
         <div id="mainMenu" style="display: none;">
             <button id="playButton">PLAY</button>
             <button id="leaderboardButton">Leaderboard</button>
             <button id="shopButton">Shop</button>
             <button id="signOutButton">Sign Out</button>
+        </div>
+        <div id="forgotMenu" style="display: none;">
+             <input id="forgotEmail" placeholder="Email" type="email">
+            <button id="sendResetEmailButton">SEND RESET EMAIL</button>
+            <button id="cancelResetEmailButton">Cancel</button>
+
         </div>
         <div id="leaderboardMenu" style="display: none;">
             <p class="menuHeading">

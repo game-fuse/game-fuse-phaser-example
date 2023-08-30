@@ -44,7 +44,8 @@ body {
 #signinMenu,
 #mainMenu,
 #leaderboardMenu,
-#shopMenu {
+#shopMenu,
+#forgotMenu {
     display: none;
     flex-direction: column;
     align-items: center;
@@ -70,6 +71,22 @@ body {
     font-size: 30px;
     color: blue;
     text-decoration: underline;
+}
+
+#cancelResetEmailButton{
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+#sendResetEmailButton{
+    font-size: 30px;
+    color: blue;
+    text-decoration: underline;
+}
+#forgotPageLink {
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
 }
 
 .menuHeading {

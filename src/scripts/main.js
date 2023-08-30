@@ -21,9 +21,11 @@ let signinLink = document.getElementById('signinLink');
 let signinMenu = document.getElementById('signinMenu');
 let signinButton = document.getElementById('signinButton');
 let signupLink = document.getElementById('signupLink');
+let forgotPageLink = document.getElementById('forgotPageLink');
 
 let menu = document.getElementById('menu');
 let mainMenu = document.getElementById('mainMenu');
+let forgotMenu = document.getElementById('forgotMenu');
 let playButton = document.getElementById('playButton');
 let leaderboardButton = document.getElementById('leaderboardButton');
 let shopButton = document.getElementById('shopButton');
@@ -34,6 +36,11 @@ let shopMenu = document.getElementById('shopMenu');
 let leaderboardBackButton = document.getElementById('leaderboardBackButton');
 let shopBackButton = document.getElementById('shopBackButton');
 
+let sendResetEmailButton = document.getElementById('sendResetEmailButton');
+let cancelResetEmailButton = document.getElementById('cancelResetEmailButton');
+
+
+
 
 // Event listeners
 signinLink.addEventListener('click', function () {
@@ -41,6 +48,8 @@ signinLink.addEventListener('click', function () {
     signupMenu.style.display = 'none';
     signinMenu.style.display = 'flex';
     mainMenu.style.display = 'none';
+    forgotMenu.style.display = 'none';
+
 });
 
 signupLink.addEventListener('click', function () {
@@ -48,8 +57,26 @@ signupLink.addEventListener('click', function () {
     signupMenu.style.display = 'flex';
     signinMenu.style.display = 'none';
     mainMenu.style.display = 'none';
+    forgotMenu.style.display = 'none';
+
 });
 
+
+forgotPageLink.addEventListener('click', function () {
+    // Show forgot password, hide the rest
+    signupMenu.style.display = 'none';
+    signinMenu.style.display = 'none';
+    mainMenu.style.display = 'none';
+    forgotMenu.style.display = 'flex';
+});
+
+cancelResetEmailButton.addEventListener('click', function () {
+    // Show signup, hide the rest
+    signupMenu.style.display = 'none';
+    signinMenu.style.display = 'flex';
+    mainMenu.style.display = 'none';
+    forgotMenu.style.display = 'none';
+});
 
 signinButton.addEventListener('click', function () {
     // Get email and password & sign in
@@ -94,6 +121,25 @@ leaderboardButton.addEventListener('click', function () {
 
     updateLeaderboard();
 });
+
+
+
+sendResetEmailButton.addEventListener('click', function () {
+    alert("send reset email with email = "+document.getElementById('forgotEmail').value)
+    GameFuse.sendPasswordResetEmail(document.getElementById('forgotEmail').value, function (message, hasError) {
+        if (hasError) {
+            alert("Something went wrong...");
+        }
+        else {
+            alert("A link to reset your password has been sent to your email!");
+            signupMenu.style.display = 'none';
+            signinMenu.style.display = 'flex';
+            mainMenu.style.display = 'none';
+            forgotMenu.style.display = 'none';
+        }
+    });
+});
+
 
 function updateLeaderboard() {
     // Update leaderboard UI with entries from GameFuse
@@ -415,6 +461,8 @@ const SignUp = (email, password, cPassword, username) => {
             signUpButton.disabled = false;
             signupMenu.style.display = 'none';
             signinMenu.style.display = 'flex';
+            forgotMenu.style.display = 'none';
+
         }
     });
 }
