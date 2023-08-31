@@ -125,7 +125,6 @@ leaderboardButton.addEventListener('click', function () {
 
 
 sendResetEmailButton.addEventListener('click', function () {
-    alert("send reset email with email = "+document.getElementById('forgotEmail').value)
     GameFuse.sendPasswordResetEmail(document.getElementById('forgotEmail').value, function (message, hasError) {
         if (hasError) {
             alert("Something went wrong...");
