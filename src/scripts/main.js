@@ -10,6 +10,10 @@ console.log(import.meta.env.gameID)
 console.log(import.meta.env.gameToken)
 
 window.onload = function () {
+    if( gameID == undefined || gameID.length == 0 || gameToken == undefined || gameToken.length == 0){
+        alert("please create top level .env file with VITE_GAME_ID and VITE_GAME_TOKEN Env variables")
+        return
+    }
     start(gameID, gameToken);
 }
 
